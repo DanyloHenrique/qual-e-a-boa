@@ -1,4 +1,4 @@
-import s from "./index.module.scss";
+import s from "./header.module.scss";
 import Logo from "@/assets/icons/logoEvent.png";
 
 const Header = () => {
