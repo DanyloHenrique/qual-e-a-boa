@@ -1,4 +1,4 @@
-import s from './InputField.module.css'
+import s from './inputField.module.css'
 
 export default function InputField({ placeholder, type, value, onChange }) {
   return (
