@@ -1,0 +1,18 @@
+.inputText {
+  width: 100%;
+  padding: 12px 20px;
+  background-color: #1A1A1A; 
+  color: white;
+  border: 1px solid #444;
+  border-radius: 15px;     
+  outline: none;
+  font-size: 16px;
+}
+
+.inputText::placeholder {
+  color: #888;             
+}
+
+.inputText:focus {
+  border-color: #666;     
+}
