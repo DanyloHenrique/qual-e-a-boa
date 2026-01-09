@@ -1,10 +1,7 @@
 import React from 'react'
 import s from './index.module.scss'
-import { FaInstagram } from "react-icons/fa";
-import { FiTwitter } from "react-icons/fi";
-import { AiOutlineYoutube } from "react-icons/ai";
+import { FiInstagram, FiTwitter, FiYoutube, FiMapPin } from "react-icons/fi";
 import logoSemTexto from "/src/assets/images/logo-sem-texto.png"
-import { LuMapPin } from "react-icons/lu";
 
 function Footer() {
   return (
@@ -22,19 +19,15 @@ function Footer() {
             <ul className={s.socialList}>
               <li>
                 <a
-                  href="https://www.instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#"
                   aria-label="Instagram"
                 >
-                  <FaInstagram />
+                  <FiInstagram />
                 </a>
               </li>
               <li>
                 <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#"
                   aria-label="Twitter"
                 >
                   <FiTwitter />
@@ -42,12 +35,10 @@ function Footer() {
               </li>
               <li>
                 <a
-                  href="https://www.youtube.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#"
                   aria-label="YouTube"
                 >
-                  <AiOutlineYoutube />
+                  <FiYoutube />
                 </a>
               </li>
             </ul>
@@ -86,7 +77,7 @@ function Footer() {
       <div className={s.containerFooterCopyright}>
         <small className={s.copyrightText}>&#169; 2025 Qual é a Boa? Todos os direitos reservados.</small>
         <div className={s.footerContainerIcon}>
-          <LuMapPin aria-hidden="true" className={s.footerIconPin}/>
+          <FiMapPin aria-hidden="true" className={s.footerIconPin}/>
           <span>Brasil</span>
         </div>
       </div>
