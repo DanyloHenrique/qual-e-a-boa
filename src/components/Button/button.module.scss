@@ -1,0 +1,44 @@
+@use "../../styles/variables" as v;
+
+.btnCustom {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 34px;
+  border-radius: 10px;
+  font-family: "Archivo", sans-serif;  
+  font-size: 1.125rem;
+  gap: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border: none;
+ 
+  &.primary {
+    background-color: v.$color-primary;
+    color: v.$color-background; 
+    font-weight: 600;
+    text-transform: uppercase;
+    
+    &:hover {
+      background-color: v.$color-primary-hover;
+    }
+  }
+
+  &.outline {
+    background-color: transparent;
+    border: 1px solid v.$color-foreground;
+    color: v.$color-text;
+    text-transform: capitalize;
+
+    &:hover {      
+      border: 1px solid v.$color-primary;
+    }
+  }
+
+  @media (max-width: 480px) {
+    width: 100%; 
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+}
+
