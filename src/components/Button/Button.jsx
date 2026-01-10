@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './button.module.scss';
 
-const Button = ({ children, variant = 'primary', icon, onClick, type = 'button', fontWeight }) => {
+const Button = ({ children, variant = 'primary', icon: Icon, iconSize = 20, onClick, type = 'button', fontWeight}) => {
   const buttonClassName = `${styles.btnCustom} ${styles[variant]}`;
 
   return (
@@ -12,9 +12,9 @@ const Button = ({ children, variant = 'primary', icon, onClick, type = 'button',
       style={{ fontWeight: fontWeight }}
     >
      
-      {icon && (
-        <span className={styles.iconWrapper}>
-          <img src={icon} alt="" aria-hidden="true" />
+      {Icon && (
+        <span className={styles.iconWrapper} aria-hidden="true">
+          <Icon size={iconSize} />
         </span>
       )}
       
@@ -29,16 +29,21 @@ export default Button;
 /* 
    PROPS:
   - variant: "primary" (verde) ou "outline" (borda)
-  - icon: caminho da imagem importada (botões com ícone) (importar a imagem antes)
+  - icon: componente de ícone (React Icons)
   - fontWeight: peso da fonte para o negrito.
 
   EXEMPLOS DE USO:
 
-  1. Botão Comprar Ingresso (Com ícone PNG)
-  <Button variant="primary" icon={Ticket}> comprar ingresso </Button>
+  importações:
+import Button from "./components/Button/Button"; 
+import { GrSend } from "react-icons/gr";
+import { PiTicketBold } from "react-icons/pi";
 
-  2. Botão Inscrever (Com ícone PNG)
-  <Button variant="primary" icon={Send}> inscrever </Button>
+  1. Botão Comprar Ingresso 
+  <Button variant="primary" icon={PiTicketBold}> comprar ingresso </Button>
+
+  2. Botão Inscrever 
+  <Button variant="primary" icon={GrSend}> inscrever </Button>
 
   3. Botão Publicar Evento (Sem ícone e com fonte mais grossa)
   <Button variant="primary" fontWeight="900"> publicar evento </Button>
