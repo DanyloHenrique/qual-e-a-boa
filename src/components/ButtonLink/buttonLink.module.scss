@@ -1,0 +1,37 @@
+@use "../../styles/variables" as v;
+
+.buttonLink {
+  width: 100%;
+  padding: 0.938rem 2rem;
+  border-radius: 0.625rem;
+  background-color: v.$color-primary;
+  color: v.$color-background;
+
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem; //in case icon exists
+
+  font-family: "Archivo", sans-serif;
+  // font-size: 1.125rem;
+  font-weight: bold;
+
+  cursor: pointer;
+  &:hover {
+    background-color: v.$color-primary-hover;
+  }
+
+  &Secondary {
+    background-color: rgba(v.$color-foreground, 0.2);
+    color: v.$color-text;
+    border: 1px solid v.$color-foreground;
+
+    &:hover {
+      background-color: rgba(v.$color-foreground, 0.1);
+      border: 1px solid v.$color-primary;
+    }
+  }
+
+  text-decoration: none;
+}
