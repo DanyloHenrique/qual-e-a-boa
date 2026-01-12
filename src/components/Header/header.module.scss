@@ -1,6 +1,8 @@
 @use "../../styles/variables" as v;
 
 .header {
+  position: relative;
+  z-index: 5;
   height: 5rem;
   display: flex;
   justify-content: space-between;
@@ -17,6 +19,23 @@
       font-size: 1.4rem;
       color: v.$color-primary;
     }
+  }
+
+  .hamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    gap: 0.4rem;
+    align-items: center;
+    justify-content: center;
+    color: v.$color-primary; /* icon color (uses currentColor) */
+    svg {
+      display: block;
+    }
+    position: relative;
+    z-index: 1001; /* ensure icon/button sits above the mobile nav */
   }
 
   .nav {
@@ -36,5 +55,79 @@
   a {
     border: none;
     font-size: 1.3rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 1.5rem;
+
+    .hamburger {
+      display: flex;
+      color: v.$color-text;
+      position: relative;
+      z-index: 1001;
+    }
+
+    /* when menu is open, make the icon visible on dark background */
+    .hamburger[aria-expanded="true"] {
+      color: v.$color-text;
+    }
+
+    .backdrop {
+      display: none;
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(11, 11, 11, 0.98);
+      color: #fff;
+      display: none;
+      flex-direction: column;
+      gap: 1.2rem;
+      padding: 4rem 1.5rem 1.5rem 1.5rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.32);
+      z-index: 999;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .nav a {
+      color: #fff;
+      font-size: 1.4rem;
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 0.75rem 0;
+    }
+
+    .nav.open {
+      display: flex;
+    }
+
+    .createDesktop {
+      display: block;
+    }
+
+    .createMobile {
+      display: block;
+      width: 100%;
+    }
+
+    .createMobile .buttonLink {
+      width: 100%;
+    }
+
+    .createDesktop .buttonLink {
+      /* keep default desktop layout */
+    }
+
+    /* hide desktop create button on mobile */
+    .createDesktop {
+      display: none;
+    }
+
+    /* no bar animations when using icons */
   }
 }
