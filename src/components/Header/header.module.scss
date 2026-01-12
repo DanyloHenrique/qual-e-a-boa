@@ -1,46 +1,40 @@
-@use '../../styles/variables'  as v;
+@use "../../styles/variables" as v;
 
-.header {   
-    height: 5rem;
+.header {
+  height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5rem;
+
+  .containerLogo {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 0 5rem;
-    
-    .containerLogo {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-    
-        p {
-            font-weight: 400;
-            font-size: 1.4rem;
-            color: v.$color-primary;
-        }
-    }
+    gap: 1rem;
 
-    .nav {
-        display: flex;
-        gap: 2rem;
+    p {
+      font-weight: 400;
+      font-size: 1.4rem;
+      color: v.$color-primary;
     }
+  }
+
+  .nav {
+    display: flex;
+    gap: 2rem;
 
     a {
-        color: v.$color-foreground;
-        font-size: 1.4rem;
+      background-color: transparent;
     }
+  }
 
-    button {
-        padding: 1rem 3rem;
-        border-radius: 10px;
-        font-size: 1.2rem;
-        font-weight: 600;
-        background-color: v.$color-primary;
-        cursor: pointer;
-        color: v.$color-background;
-        transition: 0.3s;
+  .nav + a {
+    padding: 1rem 3rem;
+    width: 15rem;
+  }
 
-        &:hover {
-            background-color: v.$color-primary-hover;
-        }
-    }
+  a {
+    border: none;
+    font-size: 1.3rem;
+  }
 }
