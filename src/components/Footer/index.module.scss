@@ -141,7 +141,6 @@
   }
 
   .flexFooter {
-    // flex-direction: column;
     gap: 3rem;
   }
 
@@ -178,7 +177,7 @@
 
 // MOBILE
 
-@media(max-width: 480px) {
+@media(max-width: 576px) {
   .footer {
     padding: 2rem 2rem;
     max-width: 100%;

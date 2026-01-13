@@ -1,7 +1,7 @@
 import React from 'react'
 import s from './index.module.scss'
 import { FiInstagram, FiTwitter, FiYoutube, FiMapPin } from "react-icons/fi";
-import logoSemTexto from "/src/assets/images/logo-sem-texto.png"
+import Logo from '../Logo/Logo';
 
 function Footer() {
   return (
@@ -9,8 +9,7 @@ function Footer() {
       <div className={s.flexFooter}>
         <section className={s.containerFooterLogo}>
           <div className={s.flexLogo}>
-            <img src={logoSemTexto} alt="Logo Qual é a boa" />
-            <h2>QUAL É A BOA</h2>
+            <Logo />
           </div>
 
           <p>Sua plataforma de eventos locais. Descubra, conecte e viva experiências únicas.</p>

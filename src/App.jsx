@@ -1,14 +1,8 @@
 import React from "react";
-import Footer from "./components/Footer/Footer";
 import './styles/globalStyle.scss'
 
-
 function App() {
-  return(
-    <>
-      <Footer />
-    </>
-  )
+  return <h1>Hello World!</h1>;
 }
 
 export default App;
