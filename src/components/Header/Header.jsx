@@ -1,9 +1,9 @@
 import s from "./header.module.scss";
-import Logo from "@/assets/icons/logoEvent.png";
 import ButtonLink from "../ButtonLink/ButtonLink";
+import Logo from "../Logo/Logo";
 import { BrowserRouter } from "react-router-dom";
 import { useState } from "react";
-import { FiMenu, FiX } from "react-icons/fi";
+import { FiMenu } from "react-icons/fi";
 import { MdClose } from "react-icons/md";
 
 const Header = () => {
@@ -14,15 +14,8 @@ const Header = () => {
 
   return (
     <header className={s.header}>
-      <div className={s.containerLogo}>
-        <img
-          src={Logo}
-          alt="Logo da aplicação vaibe-local , é  um ícone  de localização"
-        />
-        <p>Vaibe-Local</p>
-      </div>
+      <Logo />
       <BrowserRouter>
-      
         <button
           className={s.hamburger}
           onClick={handleToggle}

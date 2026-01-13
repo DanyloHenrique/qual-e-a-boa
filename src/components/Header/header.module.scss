@@ -9,18 +9,6 @@
   align-items: center;
   padding: 0 3rem;
 
-  .containerLogo {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-
-    p {
-      font-weight: 400;
-      font-size: 1.4rem;
-      color: v.$color-primary;
-    }
-  }
-
   .hamburger {
     display: none;
     background: transparent;
@@ -59,16 +47,7 @@
   }
 
   @media screen and (max-width: 1100px) {
-    .containerLogo {
-      p {
-        font-size: 1.2rem;
-      }
-
-      img {
-        width: 40px;
-        height: 40px;
-      }
-    }
+   
     .nav {
       gap: 0.4rem;
 
@@ -81,6 +60,7 @@
     .createDesktop {
       a {
         font-size: 1rem;
+         padding: 0.8rem 1rem;
       }
     }
   }
@@ -151,3 +131,6 @@
     }
   }
 }
+
+// Componente  Header da  Aplicação   , contendo  o Logo  da Aplicação, 
+//  Menu  de Links  para  navegar  entre  páginas  e  o  Link  para  Criar Evento
