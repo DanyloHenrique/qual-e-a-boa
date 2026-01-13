@@ -22,6 +22,7 @@ const Header = () => {
         <p>Vaibe-Local</p>
       </div>
       <BrowserRouter>
+      
         <button
           className={s.hamburger}
           onClick={handleToggle}

@@ -7,7 +7,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 5rem;
+  padding: 0 3rem;
 
   .containerLogo {
     display: flex;
@@ -30,26 +30,22 @@
     gap: 0.4rem;
     align-items: center;
     justify-content: center;
-    color: v.$color-primary; /* icon color (uses currentColor) */
+    color: v.$color-primary;
     svg {
       display: block;
     }
     position: relative;
-    z-index: 1001; /* ensure icon/button sits above the mobile nav */
+    z-index: 1001;
   }
 
   .nav {
     display: flex;
     gap: 2rem;
 
-    a {
+    //  colocar  fundos  transparentes  apenas  nos  buttonLinks  exceto  o  de criar  evento
+    & > a {
       background-color: transparent;
     }
-  }
-
-  .nav + a {
-    padding: 1rem 3rem;
-    width: 15rem;
   }
 
   a {
@@ -57,7 +53,40 @@
     font-size: 1.3rem;
   }
 
-  @media (max-width: 768px) {
+  //container do  link para  criar  evento  no mobile
+  .createMobile {
+    display: none;
+  }
+
+  @media screen and (max-width: 1100px) {
+    .containerLogo {
+      p {
+        font-size: 1.2rem;
+      }
+
+      img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+    .nav {
+      gap: 0.4rem;
+
+      a {
+        font-size: 1.2rem;
+        padding: 0.8rem 1rem;
+      }
+    }
+
+    .createDesktop {
+      a {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  //query  para  responsividade e  estilização do menu hamburguer
+  @media screen and (max-width: 768px) {
     padding: 0 1.5rem;
 
     .hamburger {
@@ -66,8 +95,7 @@
       position: relative;
       z-index: 1001;
     }
-
-    /* when menu is open, make the icon visible on dark background */
+    //quando menu  está aberto  , faz  o icone  visivel no  background  dark
     .hamburger[aria-expanded="true"] {
       color: v.$color-text;
     }
@@ -93,7 +121,8 @@
       justify-content: flex-start;
     }
 
-    .nav a {
+    //estilização específica apenas para os links  filhos  diretos  no elemento nav
+    .nav > a {
       color: #fff;
       font-size: 1.4rem;
       display: block;
@@ -106,10 +135,6 @@
       display: flex;
     }
 
-    .createDesktop {
-      display: block;
-    }
-
     .createMobile {
       display: block;
       width: 100%;
@@ -119,15 +144,10 @@
       width: 100%;
     }
 
-    .createDesktop .buttonLink {
-      /* keep default desktop layout */
-    }
+    //esconde o botão criar evento   no  mobile
 
-    /* hide desktop create button on mobile */
     .createDesktop {
       display: none;
     }
-
-    /* no bar animations when using icons */
   }
 }
