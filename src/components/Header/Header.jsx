@@ -15,7 +15,7 @@ const Header = () => {
   return (
     <header className={s.header}>
       <Logo />
-      <div>
+      <>
         <button
           className={s.hamburger}
           onClick={handleToggle}
@@ -37,7 +37,7 @@ const Header = () => {
         <div className={s.createDesktop}>
           <ButtonLink label="Criar Evento" to="/" />
         </div>
-      </div>
+      </>
     </header>
   );
 };
