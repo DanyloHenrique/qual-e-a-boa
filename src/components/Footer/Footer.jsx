@@ -1,5 +1,5 @@
 import React from 'react'
-import s from './index.module.scss'
+import s from './footer.module.scss'
 import { FiInstagram, FiTwitter, FiYoutube, FiMapPin } from "react-icons/fi";
 import Logo from '../Logo/Logo';
 
