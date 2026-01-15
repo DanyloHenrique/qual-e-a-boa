@@ -9,7 +9,7 @@ import { MdClose } from "react-icons/md";
 const Header = () => {
   const [open, setOpen] = useState(false);
 
-  const handleToggle = () => setOpen((v) => !v);
+  const handleToggle = () => setOpen((prevOpen) => !prevOpen);
   const handleClose = () => setOpen(false);
 
   return (
