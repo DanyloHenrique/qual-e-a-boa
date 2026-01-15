@@ -2,7 +2,7 @@ import s from "./header.module.scss";
 import ButtonLink from "../ButtonLink/ButtonLink";
 import Logo from "../Logo/Logo";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FiMenu } from "react-icons/fi";
 import { MdClose } from "react-icons/md";
 
@@ -11,6 +11,16 @@ const Header = () => {
 
   const handleToggle = () => setOpen((prevOpen) => !prevOpen);
   // const handleClose = () => setOpen(false);
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    }
+
+    return () => {
+      document.body.style.overflow = "";     
+    };
+  }, [open]);
 
   return (
     <header className={s.header}>
