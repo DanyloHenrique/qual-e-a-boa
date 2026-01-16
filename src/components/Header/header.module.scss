@@ -1,0 +1,134 @@
+@use "../../styles/variables" as v;
+
+.header {
+  position: relative;
+  z-index: 5;
+  height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3rem;
+
+  .hamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;   
+    align-items: center;
+    justify-content: center;
+    color: v.$color-primary;
+    svg {
+      display: block;
+    }
+    position: relative;
+    z-index: 1001;
+  }
+
+  .nav {
+    display: flex;
+    gap: 2rem;
+
+    //  colocar  fundos  transparentes  apenas  nos  buttonLinks  exceto  o  de criar  evento
+    & > a {
+      background-color: transparent;
+    }
+  }
+
+  a {
+    border: none;
+    font-size: 1.3rem;
+  }
+
+  //container do  link para  criar  evento  no mobile
+  .createMobile {
+    display: none;
+  }
+
+  @media screen and (max-width: 1100px) {
+    .nav {
+      gap: 0.4rem;
+
+      a {
+        font-size: 1.2rem;
+        padding: 0.8rem 1rem;
+      }
+    }
+
+    .createDesktop {
+      a {
+        font-size: 1rem;
+        padding: 0.8rem 1rem;
+      }
+    }
+  }
+
+  //query  para  responsividade e  estilização do menu hamburguer
+  @media screen and (max-width: 768px) {
+    padding: 0 1.5rem;
+
+    .hamburger {
+      display: flex;
+      color: v.$color-text;
+      position: relative;
+      z-index: 1001;
+    }
+    //quando menu  está aberto  , faz  o icone  visivel no  background  dark
+    .hamburger[aria-expanded="true"] {
+      color: v.$color-text;
+    }
+
+    .backdrop {
+      display: none;
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(v.$color-background, 0.98);     
+      color: v.$color-text;
+      display: none;
+      flex-direction: column;
+      gap: 1.2rem;
+      padding: 4rem 1.5rem 1.5rem 1.5rem;     
+      z-index: 999;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100dvh;
+    }
+
+    //estilização específica apenas para os links  filhos  diretos  no elemento nav
+    .nav > a {
+      color: v.$color-text;
+      font-size: 1.4rem;
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 0.75rem 0;
+    }
+
+    .nav.open {
+      display: flex;
+    }
+
+    .createMobile {
+      display: block;
+      width: 100%;
+    }
+
+    .createMobile .buttonLink {
+      width: 100%;
+    }
+
+    //esconde o botão criar evento   no  mobile
+
+    .createDesktop {
+      display: none;
+    }
+  }
+}
+
+// Componente  Header da  Aplicação   , contendo  o Logo  da Aplicação,
+//  Menu  de Links  para  navegar  entre  páginas  e  o  Link  para  Criar Evento
