@@ -3,9 +3,9 @@ import vectorIcon from '../../assets/icons/Vector.png'
 
 export default function SelectField({
   options = [],
-  value,
-  onChange,
-  placeholder
+  placeholder = 'Selecione uma categoria',
+  value = '',
+  onChange
 }) {
   return (
     <div className={s.selectWrapper}>
@@ -31,5 +31,6 @@ export default function SelectField({
         className={s.vector}
       />
     </div>
-  )
+  );
 }
+
