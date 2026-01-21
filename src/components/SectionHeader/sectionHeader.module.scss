@@ -1,14 +1,12 @@
-@use "../../styles/_variables.scss";
-@use "../../styles/reset";
-@use "../../styles/globalStyle.scss";
+@use "../../styles/_variables.scss" as vars;
 
 
 .destaque{
-    color: variables.$color-acent;
+    color: vars.$color-acent;
     transition: color 0.3s ease;
 
     &.destaqueVerde{
-       color: variables.$color-primary;
+       color: vars.$color-primary;
     }
 }
 
