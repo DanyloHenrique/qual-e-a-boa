@@ -1,24 +1,22 @@
-import { useState } from "react";
 import s from "./buttonCategory.module.scss";
 
-export function ButtonCategory({ categories = [] }) {
-  const [active, setActive] = useState(categories[0]);
+export function ButtonCategory({ categories = [], active, handleChange }) {
 
   if (!categories.length) return null;
 
   return (
     <div className={s.container}>
-      {categories.map((label) => {
-        const isActive = active === label;
+      {categories.map((category) => {
+        const isActive = active === category.value;
 
         return (
           <button
-            key={label}
+            key={category.value}
             type="button"
-            onClick={() => setActive(label)}
+            onClick={() => handleChange(category.value)}
             className={isActive ? s.active : s.button}
           >
-            {label}
+            {category.label}
           </button>
         );
       })}
@@ -29,21 +27,37 @@ export function ButtonCategory({ categories = [] }) {
 export default ButtonCategory;
 
 /* 
-Teste no App.jsx
+Teste no App.jsx (baseado no App.jsx fornecido e no vídeo enviado)
 
+import React, { useState } from "react";
+import './styles/globalStyle.scss'
 import ButtonCategory from "./components/ButtonCategory/ButtonCategory";
 
-
 function App() {
-  const categories = ["Todos", "Games", "Música", "Artes", "Comédia", "Food", "Workshop", "Tech"];
-  return(
-    <div>
-      <p>Renderizado</p>
-      <ButtonCategory categories={categories} />
-    </div>
-  );
-  // return <h1>Hello World!</h1>;
+  const [active, setActive] = useState(1);
+
+  const categories = [
+    { label: "Tech", value: 1},
+    { label: "Games", value: 2},
+    { label: "Geek", value: 3},
+  ];
+
+  function handleChange(value) {
+    setActive(value);
+    console.log("Categoria ativa:", value);
+  }
+
+  return (
+    <>
+      <ButtonCategory 
+        categories={categories}
+        active={active}
+        handleChange={handleChange}
+      />
+    </>
+  )
 }
 
+export default App;
 
 */
