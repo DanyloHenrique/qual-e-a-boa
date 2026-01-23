@@ -1,9 +1,14 @@
-import s from './ButtonIcon.module.scss';
+import s from "./ButtonIcon.module.scss";
 
-const ButtonIcon = ({ src, onClick, alt }) => {
+const ButtonIcon = ({ icon, onClick, ariaLabel }) => {
   return (
-    <button onClick={onClick} className={s.buttonIcon}>
-      <img src={src} alt={alt} className={s.icon} />
+    <button
+      onClick={onClick}
+      className={s.buttonIcon}
+      aria-label={ariaLabel}
+      type="button"
+    >
+      <span className={s.icon}>{icon}</span>
     </button>
   );
 };
