@@ -1,7 +1,53 @@
 import React, { memo } from "react";
 import { FiCalendar, FiMapPin, FiArrowRight } from "react-icons/fi";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import s from "./cardEvent.module.scss";
+import ButtonIcon from "../ButtonIcon/ButtonIcon";
+import ButtonLink from "../ButtonLink/ButtonLink";
+import { formatEventDate } from "../../utils/formatEventDate"; 
+
+/**
+ * Card de evento com variantes featured/compact.
+ * 
+ * @example Featured (maior)
+ * ```jsx
+ * <CardEvent 
+ *   variant="featured"
+ *   event={{
+ *     id: "uuid-v4",
+ *     title: "Nome do Evento",
+ *     price: 50,
+ *     date: "2026-01-24T14:00:00Z",
+ *     location: "Nome do Local",
+ *     coverImage: "url_da_imagem"
+ *   }}
+ * />
+ * ```
+ * 
+ * @example Compact (menor)
+ * ```jsx
+ * <CardEvent 
+ *   variant="compact"
+ *   event={{
+ *     id: "uuid-v4",
+ *     title: "Nome do Evento", 
+ *     date: "2026-01-24T18:00:00Z",
+ *     location: "Nome do Local"
+ *   }}
+ * />
+ * ```
+ * 
+ * @param {Object} props
+ * @param {Object} props.event - Dados do evento
+ * @param {string} props.event.id - ID único
+ * @param {string} props.event.title - Título
+ * @param {number} [props.event.price] - Preço (0=grátis)
+ * @param {string} props.event.date - ISO string
+ * @param {string} props.event.location - Local
+ * @param {string} [props.event.coverImage] - URL imagem
+ * @param {"featured"|"compact"} [props.variant="featured"]
+ */
+
 
 const normalizeTag = (tag) =>
   tag
@@ -10,17 +56,21 @@ const normalizeTag = (tag) =>
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/\s+/g, "-");
 
-const CardEvent = memo(({ event, variant = "featured" }) => {
-  const isCompact = variant === "compact";
-  const navigate = useNavigate();
+const CardEvent = memo(({ event, variant = "featured" }) => {  
 
-  const handleDetails = () => {
-    navigate(`/event/${event.id}`);
-  };
+  if (!event) return null;
+
+  const { id, title, price, date, location, coverImage } = event;
+
+  const isCompact = variant === "compact";
+  const isPaid = Number(price || 0) > 0;
+  const priceLabel = isPaid ? "Pago" : "Grátis";
+
+  const { dateFormatted, timeFormatted } = formatEventDate(date);
 
   const cardStyle = {
-    backgroundImage: event.image
-      ? `linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 70%), url(${event.image})`
+    backgroundImage: coverImage
+      ? `linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 70%), url(${coverImage})`
       : "none",
   };
 
@@ -28,63 +78,54 @@ const CardEvent = memo(({ event, variant = "featured" }) => {
     <article
       className={`${s.card} ${isCompact ? s.cardCompact : s.cardFeatured}`}
       style={cardStyle}
-      aria-labelledby={`event-title-${event.id}`}
-    >
-      {!isCompact && event.tags?.length > 0 && (
-        <div className={s.tags} role="list">
-          {event.tags.map((tag) => (
-            <span
-              key={tag}
-              className={s.tag}
-              data-tag-name={normalizeTag(tag)}
-              role="listitem"
-            >
-              {tag}
-            </span>
-          ))}
+      aria-labelledby={`event-title-${id}`}
+    >    
+      {!isCompact && (
+        <div className={s.tags}>
+          <span
+            className={s.tag}
+            data-tag-name={normalizeTag(priceLabel)}
+          >
+            {priceLabel}
+          </span>
         </div>
       )}
 
       <div className={s.content}>
-        <h3 id={`event-title-${event.id}`} className={s.title}>
-          {event.title}
+        <h3 id={`event-title-${id}`} className={s.title}>
+          {title}
         </h3>
 
         <div className={s.bottomWrapper}>
           <div className={s.infoGroup}>
-            <div className={s.infoItem} aria-label={`Data: ${event.date} às ${event.time}`}>
+            <div className={s.infoItem}>
               <FiCalendar size={20} aria-hidden="true" />
-              <span>{`${event.date} • ${event.time}`}</span>
+              <span>{`${dateFormatted} • ${timeFormatted}`}</span>
             </div>
 
-            <div className={s.infoItem} aria-label={`Local: ${event.location}`}>
+            <div className={s.infoItem}>
               <FiMapPin size={20} aria-hidden="true" />
-              <span>{event.location}</span>
+              <span>{location}</span>
             </div>
           </div>
 
           {isCompact && (
-            <button
-              className={s.cardIconButton}
-              onClick={handleDetails}
-              type="button"
-              aria-label={`Ver detalhes de ${event.title}`}
-            >
-              <FiArrowRight size={24} aria-hidden="true" />
-            </button>
+            <Link to={`/event/${id}`}>
+              <ButtonIcon 
+                Icon={FiArrowRight}                
+                ariaLabel={`Ver detalhes de ${title}`}
+              />
+            </Link>
           )}
         </div>
 
         {!isCompact && (
-          <button
-            className={s.cardButton}
-            onClick={handleDetails}
-            type="button"
-            aria-label={`Ver detalhes de ${event.title}`}
-          >
-            Ver detalhes
-            <FiArrowRight size={20} aria-hidden="true" />
-          </button>
+          <ButtonLink 
+            label="Ver detalhes"
+            to={`/event/${id}`}
+            icon={FiArrowRight}
+            iconSize={20}          
+          />
         )}
       </div>
     </article>
@@ -95,37 +136,4 @@ CardEvent.displayName = "CardEvent";
 
 export default CardEvent;
 
-/* ===================================================================
-  EXEMPLO DE USO 
 
-    1. Card Maior (Featured) 
-    
-   <CardEvent 
-          variant="featured"
-          event={{
-            id: 1,
-            title: "Feira Cultural",
-            date: "15 Jan 2025",
-            time: "22:00",
-            location: "Parque Ibirapuera, SP",
-            image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30",
-            tags: ["Cultural", "Gratis"]
-          }}
-        />
-
-    2. Card Compacto (Compact)
-
-     <CardEvent 
-            variant="compact"
-            event={{
-              id: 2,
-              title: "Festival de Música Eletrônica",
-              date: "15 Jan 2025",
-              time: "22:00",
-              location: "Parque Ibirapuera, SP",
-              image: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2"
-            }}
-          /> 
-
-    =================================================================== */
-     

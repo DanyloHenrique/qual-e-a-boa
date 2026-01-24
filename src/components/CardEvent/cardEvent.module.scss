@@ -1,20 +1,20 @@
 @use "../../styles/variables" as v;
 
-$tag-colors: (
-  "cultural": #12c299,
-  "gratis": v.$color-acent,
+$tag-colors: (  
+  "gratis":#4caf50, 
   "pago": #ff4d4d,
-  "shows": #7c3aed,
-  "artes": #bd00ff,
-  "games": #121793,
-  "stand-up": #ff5722,
-  "comedia": #c9b92d,
-  "networking": #03655c,
-  "festas": #4caf50,
-  "food": #795548,
-  "workshop": #3f51b5,
-  "tech": #0f172a,
-  "musica": #ff8c00
+  // "cultural": #12c299,
+  // "shows": #7c3aed,
+  // "artes": #bd00ff,
+  // "games": #121793,
+  // "stand-up": #ff5722,
+  // "comedia": #c9b92d,
+  // "networking": #03655c,
+  // "festas": v.$color-acent,
+  // "food": #795548,
+  // "workshop": #3f51b5,
+  // "tech": #0f172a,
+  // "musica": #ff8c00
 );
 
 .card {
@@ -25,20 +25,30 @@ $tag-colors: (
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  font-family: "Archivo", sans-serif;
   padding: 1.5rem;
   overflow: hidden;
+  box-sizing: border-box;
   border: 1px solid v.$color-foreground;
   transition: transform 0.3s ease, border-color 0.3s ease;
   width: 100%; 
-
+  
   &:hover {
     transform: translateY(-5px); 
-  }
+  }  
 }
 
 .cardFeatured {
   width: 380px; 
-  height: 480px; 
+  height: 480px;
+  
+  a, button, .buttonLink { 
+   display: flex;
+   justify-content: center;
+   width: 100%;
+   box-sizing: border-box;
+   margin-top: 1rem;
+  }
 
   @media (max-width: 1024px) {
     width: 340px; 
@@ -55,6 +65,10 @@ $tag-colors: (
   width: 480px; 
   height: 232px; 
 
+  a[href*="/event/"] {
+    text-decoration: none;
+}
+
   @media (max-width: 1024px) {
     width: 400px; 
     height: 210px;
@@ -70,14 +84,15 @@ $tag-colors: (
 
 .content {
   position: relative;
-  z-index: 2;
+  z-index: 2;    
+  color: v.$color-foreground;
+ 
 }
 
 .title {
   font-size: 1.6rem; 
-  margin-bottom: 0.75rem;
-  color: v.$color-foreground;
-  font-weight: 700;
+  margin-bottom: 0.75rem;  
+  font-weight: 700;  
 
   @media (max-width: 1024px) {
     font-size: 1.4rem;
@@ -91,13 +106,13 @@ $tag-colors: (
 .bottomWrapper {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-end; 
 }
 
 .infoGroup {
   display: flex;
   flex-direction: column; 
-  gap: 0.5rem;
+  gap: 0.5rem; 
 
  @media (max-width: 1024px) {
     font-size: 1rem;
@@ -124,11 +139,10 @@ $tag-colors: (
 
 .tags {
   position: absolute;
-  top: 1.5rem;
-  left: 1.5rem;
+  top: 1.5rem;  
   right: 1.5rem;
   display: flex;
-  justify-content: space-between; 
+  justify-content: flex-end;
   z-index: 2;
 }
 
@@ -144,45 +158,5 @@ $tag-colors: (
       background-color: $color;
       color: v.$color-foreground;
     }
-  }
-}
-
-.cardButton {
-  width: 100%;
-  margin-top: 1.5rem;
-  padding: 14px 34px;
-  border-radius: 12px;
-  background-color: v.$color-primary;
-  color: v.$color-background;
-  border: none;
-  font-weight: 600;
-  font-size: 1rem; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  cursor: pointer; 
-
-  &:hover {   
-    background-color: v.$color-primary-hover; 
-  }
-}
-
-.cardIconButton {
-  width: 50px; 
-  height: 50px; 
-  border-radius: 14px;
-  background-color: transparent;
-  color: v.$color-foreground;
-  border: 1px solid v.$color-foreground;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer; 
-
-  &:hover {
-    border-color: v.$color-primary;
-    color: v.$color-primary;
-    background-color: rgba(v.$color-primary, 0.1);
   }
 }
