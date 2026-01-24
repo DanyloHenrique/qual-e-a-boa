@@ -8,7 +8,9 @@ const ButtonIcon = ({ Icon, onClick, ariaLabel }) => {
       aria-label={ariaLabel}
       type="button"
     >
-      <span className={s.icon}> <Icon /> </span>
+      <span className={s.icon}>
+        <Icon />
+      </span>
     </button>
   );
 };
