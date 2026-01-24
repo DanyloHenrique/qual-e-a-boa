@@ -11,6 +11,10 @@
   align-items: center;
   justify-content: center;
   color: vars.$color-foreground;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 
   .icon {
     display: flex;
@@ -20,6 +24,22 @@
     svg {
       width: 24px;
       height: 24px;
+      transition: transform 0.2s ease;
     }
+  }
+
+  &:hover {
+    color: vars.$color-primary;
+    border-color: vars.$color-primary;
+    background-color: rgba(vars.$color-primary, 0.1);
+
+    svg {
+      transform: scale(1.1);
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid vars.$color-primary;
+    outline-offset: 2px;
   }
 }

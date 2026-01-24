@@ -1,6 +1,6 @@
 import s from "./ButtonIcon.module.scss";
 
-const ButtonIcon = ({ icon, onClick, ariaLabel }) => {
+const ButtonIcon = ({ Icon, onClick, ariaLabel }) => {
   return (
     <button
       onClick={onClick}
@@ -8,7 +8,7 @@ const ButtonIcon = ({ icon, onClick, ariaLabel }) => {
       aria-label={ariaLabel}
       type="button"
     >
-      <span className={s.icon}>{icon}</span>
+      <span className={s.icon}> <Icon /> </span>
     </button>
   );
 };
