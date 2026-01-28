@@ -1,0 +1,162 @@
+@use "../../styles/variables" as v;
+
+$tag-colors: (  
+  "gratis":#4caf50, 
+  "pago": #ff4d4d,
+  // "cultural": #12c299,
+  // "shows": #7c3aed,
+  // "artes": #bd00ff,
+  // "games": #121793,
+  // "stand-up": #ff5722,
+  // "comedia": #c9b92d,
+  // "networking": #03655c,
+  // "festas": v.$color-acent,
+  // "food": #795548,
+  // "workshop": #3f51b5,
+  // "tech": #0f172a,
+  // "musica": #ff8c00
+);
+
+.card {
+  position: relative;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  font-family: "Archivo", sans-serif;
+  padding: 1.5rem;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 1px solid v.$color-foreground;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  width: 100%; 
+  
+  &:hover {
+    transform: translateY(-5px); 
+  }  
+}
+
+.cardFeatured {
+  width: 380px; 
+  height: 480px;
+  
+  a, button, .buttonLink { 
+   display: flex;
+   justify-content: center;
+   width: 100%;
+   box-sizing: border-box;
+   margin-top: 1rem;
+  }
+
+  @media (max-width: 1024px) {
+    width: 340px; 
+    height: 440px;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    height: 400px; 
+  }
+}
+
+.cardCompact {
+  width: 480px; 
+  height: 232px; 
+
+  a[href*="/event/"] {
+    text-decoration: none;
+}
+
+  @media (max-width: 1024px) {
+    width: 400px; 
+    height: 210px;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    height: auto; 
+    min-height: 200px;
+    padding: 1rem; 
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 2;    
+  color: v.$color-foreground;
+ 
+}
+
+.title {
+  font-size: 1.6rem; 
+  margin-bottom: 0.75rem;  
+  font-weight: 700;  
+
+  @media (max-width: 1024px) {
+    font-size: 1.4rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.2rem; 
+  }
+}
+
+.bottomWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end; 
+}
+
+.infoGroup {
+  display: flex;
+  flex-direction: column; 
+  gap: 0.5rem; 
+
+ @media (max-width: 1024px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.8rem; 
+  }
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;   
+
+  &:first-child svg {
+    color: v.$color-primary; 
+  }
+
+  &:last-child svg {
+    color: v.$color-acent; 
+  }
+}
+
+.tags {
+  position: absolute;
+  top: 1.5rem;  
+  right: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 2;
+}
+
+.tag {
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-size: 1rem; 
+  background-color: v.$color-foreground; 
+  color: v.$color-background;
+
+  @each $name, $color in $tag-colors {
+    &[data-tag-name="#{$name}"] {
+      background-color: $color;
+      color: v.$color-foreground;
+    }
+  }
+}
