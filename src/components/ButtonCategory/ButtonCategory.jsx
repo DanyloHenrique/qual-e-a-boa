@@ -14,7 +14,7 @@ export function ButtonCategory({ categories = [], active, handleChange }) {
             key={category.value}
             type="button"
             onClick={() => handleChange(category.value)}
-            className={isActive ? s.active : s.button}
+            className={`${s.button} ${isActive ? s.active : ""}`}
           >
             {category.label}
           </button>
@@ -27,7 +27,7 @@ export function ButtonCategory({ categories = [], active, handleChange }) {
 export default ButtonCategory;
 
 /* 
-Teste no App.jsx (baseado no App.jsx fornecido e no vídeo enviado)
+Teste no App.jsx
 
 import React, { useState } from "react";
 import './styles/globalStyle.scss'
