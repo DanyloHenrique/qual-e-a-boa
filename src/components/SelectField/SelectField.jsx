@@ -1,5 +1,5 @@
 import s from './selectField.module.scss'
-import vectorIcon from '../../assets/icons/Vector.png'
+import { MdKeyboardArrowDown } from 'react-icons/md'
 
 export default function SelectField({
   options = [],
@@ -18,19 +18,18 @@ export default function SelectField({
           {placeholder}
         </option>
 
-        {options.map((option, index) => (
-          <option key={index} value={option.value}>
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>
             {option.label}
           </option>
         ))}
       </select>
 
-      <img
-        src={vectorIcon}
-        alt="Abrir opções"
-        className={s.vector}
-      />
+      <MdKeyboardArrowDown
+       className={s.vector}
+       aria-hidden="true"
+       focusable="false"
+       />
     </div>
-  );
+  )
 }
-

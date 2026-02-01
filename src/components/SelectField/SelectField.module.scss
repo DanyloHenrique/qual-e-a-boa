@@ -1,3 +1,5 @@
+@use '../../styles/variables' as vars;
+
 .selectWrapper {
   width: 100%;
   position: relative;
@@ -5,10 +7,10 @@
 
 .select {
   width: 100%;
-  padding: 12px 20px;
-  background-color: #1A1A1A;
-  color: white;
-  border: 1px solid #444;
+  padding: 16px 20px;
+  background-color: vars.$color-background-section;
+  color: vars.$color-text;
+  border: 1.5px solid rgba(250, 250, 250, 0.5);
   border-radius: 15px;
   outline: none;
   font-size: 16px;
@@ -16,19 +18,19 @@
 }
 
 .select:has(option[value=""]:checked) {
-  color: #888;
+  color: vars.$color-text;
 }
 
 .select:focus {
-  border-color: #666;
+  border-color: vars.$color-primary;
 }
 
 .vector {
   position: absolute;
-  width: 17px;
-  height: auto;
   right: 20px;
   top: 50%;
   transform: translateY(-50%);
   pointer-events: none;
+  color:  vars.$color-foreground;
+  font-size: 20px;
 }
