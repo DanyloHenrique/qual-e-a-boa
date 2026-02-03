@@ -10,16 +10,21 @@
     }
 }
 
+.sectionTitle{
+    border: solid 2px  vars.$color-primary;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4rem;
+    gap:12px;
+}
+
 h2{
     font-size: 2rem;
     font-weight: 450;
-    padding: 1rem;
-    display: flex;
-    margin: 2rem 2rem;
-    text-align: center;
-    justify-content: center;
-    gap:12px;
-    width: 60%;
+}
+
+p{
+    font-size: 1.125rem;
 }
 
 
