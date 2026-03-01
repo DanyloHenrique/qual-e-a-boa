@@ -1,36 +1,36 @@
-@use '../../../../styles/variables' as c;
+@use "../../../../styles/variables" as c;
 .sectionNewsletter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 80%;
+  border: 1px solid red;
+
+  h1 {
+    font-weight: 600;
+    font-size: 42px;
+    color: c.$color-foreground;
+  }
+
+  p {
+    font-weight: 400;
+    font-size: 24px;
+    width: 60%;
+    text-align: center;
+  }
+
+  div {
     display: flex;
-    flex-direction: column;
-    height: 50vh;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;    
-    border: 1px  solid red;
-
-    h1 {
-      font-weight: 600;
-      font-size: 42px;
-      color: c.$color-foreground;
+    gap: 2rem;
+    width: 80%;
+    
+    input {      
+      border: 1px solid blue;
+      &::placeholder {
+        color: c.$color-text;
+      }
     }
-
-    p {
-      font-weight: 400;
-      font-size: 24px;
-      width: 50%;
-      text-align: center;      
-    }
-
-    div {
-        display: flex;
-        gap: 2rem;
-        input {
-            width: 500px;
-            border: 1px  solid blue;
-           &::placeholder {
-            color: c.$color-text;
-           }
-        }
-    }
-   
+  }
 }
