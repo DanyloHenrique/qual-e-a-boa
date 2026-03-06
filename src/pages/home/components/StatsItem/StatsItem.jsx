@@ -1,6 +1,6 @@
 import s from './statsItem.module.scss';
 
-export default function statsItem({value, label, variant = 'pink'}) {
+export default function StatsItem({value, label, variant = 'pink'}) {
 
   let destaqueValue = s.destaque;
 
