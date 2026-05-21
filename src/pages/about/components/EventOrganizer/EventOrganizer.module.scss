@@ -1,0 +1,45 @@
+@use "../../../../styles/variables" as vars;
+
+.eventOrganizer {
+  background-color: vars.$color-background-section;
+  border: 1px solid rgba($color: vars.$color-foreground, $alpha: 0.2);
+  border-radius: 1.25rem;
+  width: 50rem;
+
+  padding: 2rem;
+
+  h3 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+
+  .content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .wrapperIcon {
+      height: 3.125rem;
+      aspect-ratio: 1/1;
+      border-radius: 10px;
+      background-color: vars.$color-primary;
+      color: vars.$color-background;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .info .name {
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .info:last-child {
+      font-size: 14px;
+      font-weight: 300;
+    }
+  }
+}

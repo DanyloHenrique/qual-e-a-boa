@@ -1,0 +1,44 @@
+@use "../../styles/_variables.scss" as vars;
+
+
+.destaque{
+    color: vars.$color-acent;
+    transition: color 0.3s ease;
+
+    &.destaqueVerde{
+       color: vars.$color-primary;
+    }
+}
+
+.sectionTitle{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4rem;
+    gap:12px;
+}
+
+h2{
+    font-size: 2rem;
+    font-weight: 450;
+}
+
+p{
+    font-size: 1.125rem;
+}
+
+
+// responsividade - mobile
+@media (max-width: 768px){
+    h2{
+        font-size: 1.35rem;
+        width: 90%;
+    }
+}
+
+// responsividade - tablet
+@media (min-width: 769px) and (max-width: 1024px){
+    h2{
+        font-size: 1.75rem;
+        width: 90%;
+    }
+}

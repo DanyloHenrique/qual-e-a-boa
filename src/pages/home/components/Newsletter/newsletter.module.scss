@@ -1,0 +1,83 @@
+@use "../../../../styles/variables" as c;
+.sectionNewsletter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 80%;
+  border:  1px solid c.$color-foreground-opacity;
+  height: 50vh;
+  border-radius: 20px;
+  h1 {
+    font-weight: 600;
+    font-size: 42px;
+    color: c.$color-foreground;
+  }
+
+  p {
+    font-weight: 400;
+    font-size: 24px;
+    width: 60%;
+    text-align: center;
+  }
+
+  div {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    width: 100%;
+    
+    input {       
+      width: 70%;
+      max-width: 600px;
+      &::placeholder {
+        color: c.$color-text;
+      }
+    }
+
+    button {
+      width: 30%;
+      max-width: 300px;
+    }
+  }
+}
+
+@media screen  and (max-width:768px){
+  .sectionNewsletter {
+     width: 90%;
+    h1 {
+      font-size: 38px;
+    }
+
+    p {
+      width: 80%;
+      font-size: 20px;
+    }
+
+    div {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+
+      input {
+        width: 90%;
+      }
+
+      button {
+        font-size: 1rem;      
+      }
+    }
+  }
+}
+
+@media screen and (max-width:500px) {
+  .sectionNewsletter {
+
+    div {
+      button {
+        min-width: 200px;
+      }
+    }
+  }
+}

@@ -24,7 +24,7 @@ e componentes locais (específicos de uma página)
 
 1.4 Links (Navegação)
 
-![alt text](images/components/global/links.png)
+![alt text](images/components/global/Links.png)
 
 1.5 Button (Componente de botão principal)
 
