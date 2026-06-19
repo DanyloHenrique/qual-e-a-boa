@@ -1,0 +1,22 @@
+@use "../../../../styles/variables" as vars;
+.sectionAboutEvent {
+  background-color: vars.$color-background-section;
+  border: 1px solid rgba($color: vars.$color-foreground, $alpha: 0.2);
+  border-radius: 1.25rem;
+  width: 50rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+
+  h3 {
+    font-weight: 600;
+    font-size: 2rem;
+    color: vars.$color-foreground;
+    margin-bottom: 2rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: vars.$color-text;
+    font-weight: 400;
+  }
+}
