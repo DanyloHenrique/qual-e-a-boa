@@ -1,3 +1,24 @@
+.events{
+  // margin: 3rem auto 0;
+  width: 70%;
+margin: 3rem auto;
+}
+
+.containerEvents{
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 1rem;
+}
+
+.listCompact{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .containerNewsletter {
   position: relative;
   overflow: hidden;
@@ -33,3 +54,5 @@
   filter: drop-shadow(0px 0px 100px #ff33a0) blur(50px);
   background: #9c0957;
 }
+
+
