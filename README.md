@@ -82,7 +82,7 @@ desafios além do código:
  
 1. **Clone o repositório**
 ```bash
-git clone https://github.com/username/qual-e-a-boa.git
+git clone https://github.com/DanyloHenrique/qual-e-a-boa.git
 cd qual-e-a-boa
 ```
  
